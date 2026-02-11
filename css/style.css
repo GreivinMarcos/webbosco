@@ -1,0 +1,426 @@
+body {
+  margin: 0;
+  padding-top: 56px;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  color: #333;
+}
+
+/* MARCA DE AGUA EN TODA LA PÁGINA */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../img/marca-agua.png') center center no-repeat;
+  background-size: 500px;
+  opacity: 0.05;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* LOGO NAVBAR */
+.logo {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* HERO */
+.hero {
+  background: url('../img/fondo-crossfit.jpg') center center/cover no-repeat;
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.hero-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+/* ENTRENADORES - efecto Tilt */
+.trainer-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+.tilt-entrenador {
+  object-fit: cover;
+  height: 280px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.tilt-entrenador:hover {
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* FOOTER */
+.footer-logo {
+  height: 60px;
+  width: auto;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+/* ICONO DE CARRITO */
+.carrito-icon {
+  position: relative;
+}
+
+.carrito-icon .badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  font-size: 0.7rem;
+  border-radius: 50%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-logo {
+    width: 90px;
+  }
+
+  .tilt-entrenador {
+    height: 240px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    height: 30px;
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .footer-logo {
+    height: 50px;
+  }
+
+  .carrito-icon .badge {
+    top: -4px;
+    right: -6px;
+  }
+}
+
+/* TARJETAS DE ENTRENAMIENTOS */
+.entrenamiento-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+.entrenamiento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.entrenamiento-card img {
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.entrenamiento-card img:hover {
+  transform: scale(1.05);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.header {
+  text-align: center;
+  background-color: #222;
+  color: white;
+  padding: 15px;
+  position: relative;
+}
+
+.logo {
+  width: 80px;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+.navbar {
+  background-color: #333;
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+.navbar a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.main-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.content-box {
+  background: white;
+  padding: 20px;
+  margin: auto;
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.styled-table th, .styled-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.styled-table th {
+  background-color: #333;
+  color: white;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 15px;
+}
+
+.background-watermark {
+  background: url('../images/crossfit-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.success-msg {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-msg {
+    background-color: #f2dede;
+    color: #a94442;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.admin-menu {
+    display: flex;
+    justify-content: center;
+    background-color: #222;
+    padding: 15px;
+    border-bottom: 3px solid #ff6600;
+    flex-wrap: wrap;
+}
+
+.admin-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.admin-menu a:hover {
+    color: #ff6600;
+    transform: scale(1.05);
+}
+
+.logout-link {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+.logout-link:hover {
+    color: #ff1a1a;
+}
+
+.admin-menu {
+    display: flex;
+    justify-content: center;
+    background-color: #222;
+    padding: 15px;
+    border-bottom: 3px solid #ff6600;
+    flex-wrap: wrap;
+}
+
+.admin-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.admin-menu a:hover {
+    color: #ff6600;
+    transform: scale(1.05);
+}
+
+.logout-link {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+.logout-link:hover {
+    color: #ff1a1a;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgba(0,0,0,0.6);
+    padding: 15px;
+    color: white;
+}
+
+.logo {
+    height: 60px;
+    border-radius: 10px;
+}
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    border-radius: 15px;
+    padding: 25px;
+    width: 220px;
+    text-align: center;
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.stat-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+.stat-card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    font-size: 32px;
+    margin: 5px 0;
+}
+
+.stat-card p {
+    font-size: 16px;
+    color: #ddd;
+}
+
+/* Colores personalizados */
+.stat-card.usuarios { border-top: 4px solid #4cc9f0; }
+.stat-card.inventario { border-top: 4px solid #f9c74f; }
+.stat-card.pendientes { border-top: 4px solid #f9844a; }
+.stat-card.completadas { border-top: 4px solid #43aa8b; }
