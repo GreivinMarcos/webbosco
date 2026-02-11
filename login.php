@@ -12,6 +12,7 @@ if (isset($_SESSION['usuario'])) {
     exit;
 }
 //prueba de git
+//segunda prueba
 $mensaje = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
