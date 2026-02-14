@@ -223,10 +223,10 @@ if (isset($_GET['eliminar'])) {
 
         <?php
         $resultado = $conn->query("
-            SELECT i.*, COALESCE(SUM(c.cantidad),0) AS ventas
+            SELECT i.id, i.nombre, i.categoria, i.descripcion, i.imagen, i.precio, i.stock, i.fecha_registro,COALESCE(SUM(c.cantidad),0) AS ventas
             FROM inventario i
             LEFT JOIN carrito c ON c.producto_id = i.id
-            GROUP BY i.id
+            GROUP BY i.id, i.nombre, i.categoria, i.descripcion, i.imagen, i.precio, i.stock, i.fecha_registro
             ORDER BY i.fecha_registro DESC
         ");
 
