@@ -29,8 +29,7 @@ if (!mysqli_real_connect(
     NULL,
     MYSQLI_CLIENT_SSL
 )) {
-    die("Este es el conexion correcto");
-
+    die("Error de conexión: " . mysqli_connect_error());
 }
 
 // No imprimir absolutamente nada aquí
