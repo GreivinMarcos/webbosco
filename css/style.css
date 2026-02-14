@@ -5,7 +5,7 @@ img {
 }
 
 @media (max-width: 768px) {
-  
+
   body {
     padding-top: 90px;
   }
@@ -42,7 +42,7 @@ body::before {
 /* HERO */
 .hero {
   background: url('../img/fondo-crossfit.jpg') center center/cover no-repeat;
-  min-height: 100svh; 
+  min-height: calc(100svh - 70px); 
   position: relative;
   display: flex;
   align-items: center;
@@ -85,15 +85,14 @@ body::before {
 /* ENTRENADORES - efecto Tilt */
 .trainer-card {
     width: 100%;
+    object-fit: cover;
 }
 
 
 .tilt-entrenador {
   width: 100%;
   height: auto;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  /*display: block;*/
+  display: block;
 }
 
 .tilt-entrenador:hover {
