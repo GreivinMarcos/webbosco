@@ -90,10 +90,8 @@ body::before {
 
 
 .tilt-entrenador {
-  object-fit: cover;
   width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
+  height: auto;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -128,13 +126,14 @@ footer p {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .hero-logo {
     width: 80px;
   }
 
   .tilt-entrenador {
-    height: 240px;
+    height: 280px;
+    object-fit: cover;
   }
 }
 
