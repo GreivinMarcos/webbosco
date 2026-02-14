@@ -20,6 +20,7 @@ mysqli_real_connect($conn, $servername, $username, $password, $database, $port, 
 
 if (mysqli_connect_errno()) {
     die("Error de conexión: " . mysqli_connect_error());
+} else {
+    echo "Conexión exitosa a Azure MySQL";
 }
-
 ?>
