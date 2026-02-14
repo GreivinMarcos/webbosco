@@ -54,7 +54,7 @@
 <!-- HERO -->
 <header class="hero d-flex align-items-center justify-content-center text-center text-light">
   <div class="container">
-    <!-- <img src="img/logo.png" alt="Bosco Box Logo" class="hero-logo mb-3"> -->
+     <img src="img/logo.png" alt="Bosco Box Logo" class="hero-logo mb-3">
     <h1 class="fw-bold">Bienvenido a Bosco Box</h1>
 
     <!-- CONTENEDOR DE CUADROS -->
