@@ -34,7 +34,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto text-center">
         <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">FitBar</a></li>
         <li class="nav-item"><a class="nav-link" href="entrenamientos.php">Entrenamientos</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Registrarse</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
