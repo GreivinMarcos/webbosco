@@ -5,7 +5,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bosco Box - CrossFit</title>
 
   <!-- Bootstrap -->
@@ -24,7 +24,10 @@
   <div class="container">
     <!-- LOGO Y NOMBRE -->
     <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="img/logo.png" alt="Bosco Box Logo" class="logo me-2">
+<div class="d-flex align-items-center">
+    <img src="img/logo.png" alt="Bosco Box Logo" class="logo me-2">
+</div>
+
       <span class="fw-bold text-uppercase">Bosco Box</span>
     </a>
 
@@ -52,7 +55,7 @@
 <header class="hero d-flex align-items-center justify-content-center text-center text-light">
   <div class="container">
     <img src="img/logo.png" alt="Bosco Box Logo" class="hero-logo mb-3">
-    <h1 class="display-4 fw-bold mb-3">Bienvenido a Bosco Box</h1>
+    <h1 class="fw-bold">Bienvenido a Bosco Box</h1>
 
     <!-- CONTENEDOR DE CUADROS -->
     <div class="row g-4 justify-content-center">
@@ -60,7 +63,7 @@
       <!-- CUADRO 1: Bosco Box Fitness Center -->
       <div class="col-md-10 col-lg-8">
         <div class="p-4 rounded" style="background: rgba(0,0,0,0.6); border-left: 5px solid #0dcaf0;">
-          <p class="lead mb-0">
+          <p class="lead">
             Bosco Box Fitness Center es un centro de acondicionamiento físico en el cual utilizan una metodología 
             de entrenamiento para que las personas alcancen su mejor versión, además puedan cumplir con sus objetivos (halterofilia, Crossfit/funcional, fitness) 
             o de salud (entrenamientos personalizados a adultos mayores). Esta empresa fue fundada el 15 de mayo del 2017 por José Miguel Herrera Martínez 

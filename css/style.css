@@ -1,3 +1,9 @@
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 body {
   margin: 0;
   padding-top: 56px;
@@ -23,10 +29,12 @@ body::before {
 
 /* LOGO NAVBAR */
 .logo {
-  height: 40px;
-  width: auto;
-  transition: transform 0.3s ease;
+  max-width: 50px;
+  height: auto;
+  object-fit: contain;
 }
+
+
 
 .logo:hover {
   transform: scale(1.1);
@@ -35,8 +43,12 @@ body::before {
 /* HERO */
 .hero {
   background: url('../img/fondo-crossfit.jpg') center center/cover no-repeat;
-  min-height: 100vh;
+  min-height: 100svh; 
   position: relative;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .hero::after {
@@ -54,9 +66,15 @@ body::before {
 }
 
 .hero-logo {
-    width: 120px;
-    max-width: 100%;
-    height: auto;
+ position: relative;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: auto;
+  background: rgba(255,255,255,0.9); /* suaviza el contraste */
+  padding: 10px;
+  border-radius: 12px;
 }
 
 .hero h1 {
@@ -76,8 +94,9 @@ body::before {
 
 .tilt-entrenador {
   object-fit: cover;
-  height: 280px;
   width: 100%;
+  height: auto;
+  object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -114,7 +133,7 @@ footer p {
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .hero-logo {
-    width: 90px;
+    width: 70px;
   }
 
   .tilt-entrenador {
@@ -123,12 +142,13 @@ footer p {
 }
 
 @media (max-width: 768px) {
-  .logo {
-   width: 80%;
+.logo {
+    max-width: 80px;
   }
 
   .hero {
     min-height: 80vh;
+    
   }
 
   .hero h1 {
@@ -157,7 +177,8 @@ footer p {
 }
 
 .entrenamiento-card img {
-  height: 220px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -181,15 +202,6 @@ body {
   color: white;
   padding: 15px;
   position: relative;
-}
-
-.logo {
-  width: 120px;
-  max-width: 100%;
-  height: auto;
-  position: absolute;
-  left: 20px;
-  top: 10px;
 }
 
 .navbar {
@@ -375,11 +387,6 @@ body {
     background-color: rgba(0,0,0,0.6);
     padding: 15px;
     color: white;
-}
-
-.logo {
-    height: 60px;
-    border-radius: 10px;
 }
 
 .stats-container {
