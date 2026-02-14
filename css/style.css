@@ -54,9 +54,9 @@ body::before {
 }
 
 .hero-logo {
-  width: 120px;
-  height: auto;
-  margin-bottom: 20px;
+    width: 120px;
+    max-width: 100%;
+    height: auto;
 }
 
 .hero h1 {
@@ -123,7 +123,9 @@ footer p {
 
 @media (max-width: 576px) {
   .logo {
-    height: 30px;
+    width: 120px;
+    max-width: 100%;
+    height: auto;
   }
 
   .hero {
