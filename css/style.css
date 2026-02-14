@@ -93,13 +93,10 @@ body::before {
 }
 
 
-.tilt-entrenador {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  transition: transform 0.3s ease;
+.trainer-card img {
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  background-color: #f8f9fa;
 }
 
 .tilt-entrenador:hover {
