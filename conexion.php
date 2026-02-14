@@ -1,26 +1,36 @@
 <?php
 $servername = "boscoboxfitnesscenter-server.mysql.database.azure.com";
-$username   = "uqvqtymxlq"; // usuario con sufijo @servidor
-$password   = 'eVrIw$XRhNvs0Vy4'; // tu contraseña real
+$username   = "uqvqtymxlq";
+$password   = 'eVrIw$XRhNvs0Vy4';
 $database   = "boscobox_fitbar";
 $port       = 3306;
 
-// Conexión con SSL requerido
+// Inicializar conexión
 $conn = mysqli_init();
+
+// Configurar SSL
 mysqli_ssl_set(
     $conn,
     NULL,
     NULL,
-    __DIR__ . "/certs/MysqlflexGlobalRootCA.crt.pem", // ruta relativa al archivo actual
+    __DIR__ . "/certs/MysqlflexGlobalRootCA.crt.pem",
     NULL,
     NULL
 );
 
-mysqli_real_connect($conn, $servername, $username, $password, $database, $port, NULL, MYSQLI_CLIENT_SSL);
-
-if (mysqli_connect_errno()) {
+// Realizar conexión
+if (!mysqli_real_connect(
+    $conn,
+    $servername,
+    $username,
+    $password,
+    $database,
+    $port,
+    NULL,
+    MYSQLI_CLIENT_SSL
+)) {
     die("Error de conexión: " . mysqli_connect_error());
-} else {
-    echo "Conexión exitosa a Azure MySQL";
 }
+
+// No imprimir absolutamente nada aquí
 ?>
