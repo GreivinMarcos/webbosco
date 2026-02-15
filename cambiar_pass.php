@@ -1,5 +1,5 @@
 <?php
-include('../conexion.php');
+include('conexion.php');
 $id = $_GET['id'] ?? null;
 $mensaje = '';
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <header class="header">
-    <img src="../images/logo.png" alt="BoscoBox Logo" class="logo">
+ <img src="img/logo.png" alt="Bosco Box Logo" class="hero-logo mb-3">
     <h1>Cambiar Contraseña</h1>
 </header>
 <main class="main-content">
