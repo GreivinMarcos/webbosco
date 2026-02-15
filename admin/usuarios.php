@@ -79,7 +79,7 @@ $result = $conn->query("SELECT * FROM usuarios ORDER BY fecha_registro DESC");
         nav { background: rgba(20,20,20,0.9); text-align:center; padding:10px 0; }
         nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:600; }
         nav a:hover { color:#ffc107; }
-        .container { max-width:1100px; margin:40px auto; background:rgba(0,0,0,0.65); padding:30px; border-radius:10px; }
+        .container { max-width:1100px; margin:40px auto; background:rgba(0,0,0,0.65); padding:30px; border-radius:10px;  overflow-x: auto; }
         h2 { text-align:center; color:#ffc107; }
         table { width:100%; border-collapse:collapse; color:#fff; }
         th, td { border:1px solid rgba(255,255,255,0.1); padding:10px; text-align:left; }
@@ -89,6 +89,31 @@ $result = $conn->query("SELECT * FROM usuarios ORDER BY fecha_registro DESC");
         .btn-warning { background:#ffc107; color:#111; }
         .mensaje { text-align:center; background:rgba(255,255,255,0.1); padding:8px; border-radius:6px; margin-bottom:15px; }
         footer { text-align:center; color:#ccc; padding:12px; margin-top:25px; }
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 10px;
+    }
+}
+
     </style>
 </head>
 <body>
