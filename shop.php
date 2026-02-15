@@ -106,7 +106,7 @@ $resultado = $conn->query($query);
 
         main {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1200px; /*1200*/
             margin: 40px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -128,7 +128,7 @@ $resultado = $conn->query($query);
         }
 
         .producto img {
-            width: 100%;
+            width: 250px;
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
@@ -206,6 +206,7 @@ $resultado = $conn->query($query);
             <a href="logout.php">Cerrar sesión</a>
         <?php else: ?>
             <a href="login.php">Iniciar sesión</a>
+            <a href="index.php">Inicio</a>
         <?php endif; ?>
     </div>
     <h1>🏋️‍♂️ Bienvenido al FitBar</h1>

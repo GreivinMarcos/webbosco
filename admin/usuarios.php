@@ -61,6 +61,7 @@ $result = $conn->query("SELECT * FROM usuarios ORDER BY fecha_registro DESC");
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios | BoscoBox - Admin</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="../css/style.css">
