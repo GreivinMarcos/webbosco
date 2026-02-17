@@ -6,7 +6,7 @@ $entrenamientos = [
     ["titulo" => "MetCon", "desc" => "Entrenamiento metabólico para mejorar resistencia cardiovascular y muscular en sesiones cortas e intensas.", "img" => "entrenamiento_metcon.jpg"],
     ["titulo" => "Movilidad y Flexibilidad", "desc" => "Ejercicios enfocados en rango de movimiento, prevención de lesiones y recuperación activa.", "img" => "entrenamiento_movilidad.jpg"],
     ["titulo" => "Resistencia y Cardio", "desc" => "Entrenamientos para mejorar capacidad aeróbica, resistencia muscular y salud cardiovascular.", "img" => "entrenamiento_resistencia.jpg"],
-    ["titulo" => "Nutrición y Coaching Personalizado", "desc" => "Asesoramiento personalizado en nutrición deportiva y planes de entrenamiento individualizados.", "img" => "entrenamiento_nutricion.jpg"]
+    ["titulo" => "Coaching Personalizado", "desc" => "Asesoramiento personalizado en nutrición deportiva y planes de entrenamiento individualizados.", "img" => "entrenamiento_nutricion.jpg"]
 ];
 ?>
 <!DOCTYPE html>

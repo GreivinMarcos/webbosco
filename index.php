@@ -116,11 +116,11 @@
 
       <?php
       $entrenadores = [
-        ["nombre" => "José Herrera Martinez", "desc" => "Especialista en levantamiento olímpico y fuerza funcional.", "img" => "entrenador1.jpg"],
-        ["nombre" => "Andres Herrera Martinez", "desc" => "Coach de movilidad y acondicionamiento físico integral.", "img" => "entrenador2.jpg"],
-        ["nombre" => "Monica Solano Roldan", "desc" => "Entrenador CrossFit nivel 2, experto en técnica y motivación.", "img" => "entrenador3.jpeg"],
-        ["nombre" => "Dinorah Batista Varela", "desc" => "Especialista en nutrición deportiva y entrenamiento funcional.", "img" => "entrenador4.jpeg"],
-        ["nombre" => "Joselyn Ramirez Sandi", "desc" => "Coach de resistencia, metcon y mentalidad de alto rendimiento.", "img" => "entrenador5.jpeg"]
+        ["nombre" => "José Herrera Martinez", "desc" => "Head Coach Líder apasionado que inspira a la comunidad con su energía y compromiso, creando un ambiente donde cada atleta se siente acompañado y motivado. Diseña las programaciones con visión y dedicación, guiando a cada miembro hacia sus metas, mientras fortalece el espíritu de equipo y pertenencia.", "img" => "entrenador1.jpg"],
+        ["nombre" => "Andres Herrera Martinez", "desc" => "Entrenador comprometido que combina conocimiento académico en formación con experiencia práctica, guiando a sus atletas hacia un rendimiento equilibrado y seguro. Especialista en movilidad y fuerza, ayuda a mejorar la técnica, prevenir lesiones y alcanzar metas con disciplina y motivación.", "img" => "entrenador2.jpg"],
+        ["nombre" => "Monica Solano Roldan", "desc" => "Profesional dedicada a la rehabilitación física con enfoque en el rendimiento deportivo. Combina la terapia con programas de resistencia y fuerza para potenciar la salud integral.", "img" => "entrenador3.jpeg"],
+        ["nombre" => "Dinorah Batista Varela", "desc" => "Apasionada del entrenamiento de fuerza, esta en constante formación académica. Actualmente cursa un técnico en la Universidad Nacional, integrando teoría y práctica en sus programas.", "img" => "entrenador4.jpeg"],
+        ["nombre" => "Joselyn Ramirez Sandi", "desc" => "Profesional dedicada a la rehabilitación física con enfoque en el rendimiento deportivo. Combina la terapia con programas de resistencia y fuerza para potenciar la salud integral.", "img" => "entrenador5.jpeg"]
       ];
 
       foreach ($entrenadores as $entrenador) {
