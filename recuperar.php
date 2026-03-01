@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($resultado->num_rows > 0) {
         $token = bin2hex(random_bytes(32));
-        $url_recuperacion = "https://boscoboxfitnesscenter-hwa4dkbrdwcbf7dq.canadacentral-01.azurewebsites.net/restablecer.php?token=$token";
+        $url_recuperacion = "https://boscoboxfitnesscenter.shop/restablecer.php?token=$token";
         /*"http://localhost/Tienda%20e-commerce%20BoscoBox/restablecer.php?token=$token";*/
 
         $update = $conn->prepare("UPDATE usuarios SET token = ? WHERE correo = ?");
