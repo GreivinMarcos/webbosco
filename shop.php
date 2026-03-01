@@ -106,7 +106,7 @@ $resultado = $conn->query($query);
 
         main {
             width: 90%;
-            max-width: 1200px; /*1200*/
+            max-width: 1200px;
             margin: 40px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -120,10 +120,12 @@ $resultado = $conn->query($query);
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            cursor: pointer;
         }
 
+        /* Agrandar el cuadro al pasar el mouse */
         .producto:hover {
-            transform: scale(1.04);
+            transform: scale(1.2);
             box-shadow: 0 0 20px rgba(0,188,212,0.3);
         }
 
@@ -133,6 +135,19 @@ $resultado = $conn->query($query);
             object-fit: cover;
             border-radius: 10px;
             margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Agrandar imagen al pasar el mouse */
+        .producto img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Agrandar cuadro al hacer clic */
+        .producto.activo {
+            transform: scale(1.3);
+            box-shadow: 0 0 25px rgba(0,188,212,0.6);
+            z-index: 10;
         }
 
         .producto h3 {
@@ -254,7 +269,18 @@ $resultado = $conn->query($query);
         event.target.classList.add('active');
         window.location.href = 'shop.php?categoria=' + categoria;
     }
-</script>
 
-</body>
-</html>
+    // Agrandar producto al hacer clic
+    document.querySelectorAll('.producto').forEach(item => {
+        item.addEventListener('click', () => {
+            document.querySelectorAll('.producto').forEach(p => p.class
+            
+// Agrandar imagen al hacer clic
+document.querySelectorAll('.producto').forEach(item => {
+    item.addEventListener('click', () => {
+        // Quitar la clase activo de otros productos
+        document.querySelectorAll('.producto').forEach(p => p.classList.remove('activo'));
+        // Agregar la clase activo al producto seleccionado
+        item.classList.add('activo');
+    });
+});
