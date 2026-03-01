@@ -59,6 +59,7 @@ $resultado = $conn->query($query);
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Bienvenido al FitBar</title>
     <style>
@@ -105,12 +106,13 @@ $resultado = $conn->query($query);
         }
 
         main {
-            width: 90%;
+            width: 95%;
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 20px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+
         }
 
         .producto {
@@ -130,12 +132,14 @@ $resultado = $conn->query($query);
         }
 
         .producto img {
-            width: 250px;
-            height: 200px;
+            width: 100%;          /* Se ajusta al ancho del contenedor */
+            max-width: 250px;     /* No sobrepasa 250px en pantallas grandes */
+            height: auto;         /* Mantiene proporción */
             object-fit: cover;
             border-radius: 10px;
             margin-bottom: 10px;
             transition: transform 0.3s ease;
+
         }
 
         /* Agrandar imagen al pasar el mouse */
@@ -208,6 +212,46 @@ $resultado = $conn->query($query);
         .menu-superior a:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav button {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .producto {
+        padding: 10px;
+    }
+
+    .producto h3 {
+        font-size: 16px;
+    }
+
+    .precio {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    .producto img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .btn-comprar {
+        width: 100%;
+        padding: 12px;
+    }
+}
     </style>
 </head>
 <body>
