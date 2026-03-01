@@ -106,11 +106,11 @@ $resultado = $conn->query($query);
         }
 
         main {
-            width: 95%;
+            width: 90%;
             max-width: 1200px;
             margin: 20px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
 
         }
@@ -120,14 +120,15 @@ $resultado = $conn->query($query);
             border-radius: 15px;
             padding: 15px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             cursor: pointer;
+
         }
 
         /* Agrandar el cuadro al pasar el mouse */
         .producto:hover {
-            transform: scale(1.2);
+            transform: scale(1.05);
             box-shadow: 0 0 20px rgba(0,188,212,0.3);
         }
 
@@ -149,7 +150,7 @@ $resultado = $conn->query($query);
 
         /* Agrandar cuadro al hacer clic */
         .producto.activo {
-            transform: scale(1.3);
+            transform: scale(1.2);
             box-shadow: 0 0 25px rgba(0,188,212,0.6);
             z-index: 10;
         }
@@ -210,10 +211,10 @@ $resultado = $conn->query($query);
         }
 
         .menu-superior a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
-        @media (max-width: 768px) {
+ @media (max-width: 768px) {
     nav {
         flex-direction: column;
         align-items: center;
@@ -226,6 +227,7 @@ $resultado = $conn->query($query);
 
     .producto {
         padding: 10px;
+
     }
 
     .producto h3 {
@@ -251,6 +253,35 @@ $resultado = $conn->query($query);
         width: 100%;
         padding: 12px;
     }
+
+    /* Botón hamburguesa oculto en escritorio */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #00bcd4;
+    cursor: pointer;
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 768px) {
+    nav {
+        display: none; /* Ocultar menú por defecto */
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    nav.show {
+        display: flex; /* Mostrar cuando se active */
+    }
+
+    .hamburger {
+        display: block; /* Mostrar ícono hamburguesa */
+        margin: 10px auto;
+    }
+  }
 }
     </style>
 </head>
@@ -269,17 +300,21 @@ $resultado = $conn->query($query);
         <?php endif; ?>
     </div>
     <h1>🏋️‍♂️ Bienvenido al FitBar</h1>
-    <nav>
-        <button onclick="filtrar('Todos')" class="active">Todos</button>
-        <button onclick="filtrar('General')">General</button>
-        <button onclick="filtrar('Batidos')">Batidos</button>
-        <button onclick="filtrar('Snacks')">Snacks</button>
-        <button onclick="filtrar('Bowls')">Bowls</button>
-        <button onclick="filtrar('Suplementos')">Suplementos</button>
-        <button onclick="filtrar('Ropa')">Ropa</button>
-        <button onclick="filtrar('Adicional')">Adicional</button>
+    <!-- Botón hamburguesa -->
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <nav id="menu">
+        <button onclick="filtrar('Todos', this)" class="active">Todos</button>
+        <button onclick="filtrar('General', this)">General</button>
+        <button onclick="filtrar('Batidos', this)">Batidos</button>
+        <button onclick="filtrar('Snacks', this)">Snacks</button>
+        <button onclick="filtrar('Bowls', this)">Bowls</button>
+        <button onclick="filtrar('Suplementos', this)">Suplementos</button>
+        <button onclick="filtrar('Ropa', this)">Ropa</button>
+        <button onclick="filtrar('Adicional', this)">Adicional</button>
     </nav>
 </header>
+
 
 <main id="productos">
     <?php
@@ -317,7 +352,7 @@ $resultado = $conn->query($query);
     // Agrandar producto al hacer clic y volver a la normalidad si se hace clic otra vez
     document.querySelectorAll('.producto').forEach(item => {
         item.addEventListener('click', () => {
-            // Si el producto ya está activo, lo quitamos (vuelve a la normalidad)
+            // Si ya está activo, lo quitamos (vuelve a la normalidad)
             if (item.classList.contains('activo')) {
                 item.classList.remove('activo');
             } else {
@@ -328,4 +363,11 @@ $resultado = $conn->query($query);
             }
         });
     });
+</script>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('show');
+}
 </script>
