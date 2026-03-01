@@ -110,7 +110,7 @@ $resultado = $conn->query($query);
             max-width: 1200px;
             margin: 20px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
             gap: 20px;
 
         }
