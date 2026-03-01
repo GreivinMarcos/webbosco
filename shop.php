@@ -263,24 +263,25 @@ $resultado = $conn->query($query);
 </footer>
 
 <script>
-    function filtrar(categoria) {
-        const botones = document.querySelectorAll('nav button');
-        botones.forEach(b => b.classList.remove('active'));
-        event.target.classList.add('active');
-        window.location.href = 'shop.php?categoria=' + categoria;
-    }
+    function filtrar(categoria) {const botones = document.querySelectorAll('nav button');
+             botones.forEach(b => b.classList.remove('active'));event.target.classList.add('active');
+             window.location.href = 'shop.php?categoria=' + categoria;}
 
-    // Agrandar producto al hacer clic
+</script>
+
+<script>
+    // Agrandar producto al hacer clic y volver a la normalidad si se hace clic otra vez
     document.querySelectorAll('.producto').forEach(item => {
         item.addEventListener('click', () => {
-            document.querySelectorAll('.producto').forEach(p => p.class
-            
-// Agrandar imagen al hacer clic
-document.querySelectorAll('.producto').forEach(item => {
-    item.addEventListener('click', () => {
-        // Quitar la clase activo de otros productos
-        document.querySelectorAll('.producto').forEach(p => p.classList.remove('activo'));
-        // Agregar la clase activo al producto seleccionado
-        item.classList.add('activo');
+            // Si el producto ya está activo, lo quitamos (vuelve a la normalidad)
+            if (item.classList.contains('activo')) {
+                item.classList.remove('activo');
+            } else {
+                // Quitamos la clase activo de otros productos
+                document.querySelectorAll('.producto').forEach(p => p.classList.remove('activo'));
+                // Agregamos la clase activo al producto seleccionado
+                item.classList.add('activo');
+            }
+        });
     });
-});
+</script>
