@@ -3,7 +3,7 @@ session_start();
 include('../conexion.php');
 
 // Verificar si el usuario está logueado y es admin
-if (!isset($_SESSION['usuario']) || $_SESSION['admin'] != 'admin') {
+if (!isset($_SESSION['usuario']) || $_SESSION['admin'] != 'superadmin') {
     header('Location: ../login.php');
     exit;
 }
@@ -89,6 +89,8 @@ $ordenesCompletadas = $conn->query("SELECT COUNT(*) AS total FROM ordenes WHERE 
 
 <nav>
     <a href="../index.php">🏠 Inicio</a>
+    <a href="usuarios.php">👥 Usuarios</a>
+    <a href="inventario.php">📦 Inventario</a>
     <a href="ordenes.php">🧾 Órdenes</a>
     <a href="../logout.php">🚪 Cerrar Sesión</a>
 </nav>

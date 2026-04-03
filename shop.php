@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['producto_id'])) {
     $cantidad = 1; // Por defecto una unidad
 
     // Obtener datos del producto
-    $sql = "SELECT nombre, precio, imagen FROM inventario WHERE id = ?";
+    $sql = "SELECT nombre, precio, imagen FROM inventario WHERE id = ? AND activo = 1";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $producto_id);
     $stmt->execute();
@@ -49,9 +49,14 @@ $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : 'Todos';
 
 // Consulta productos
 if ($categoria === 'Todos') {
-    $query = "SELECT * FROM inventario ORDER BY fecha_registro DESC";
+    $query = "SELECT * FROM inventario 
+              WHERE activo = 1 
+              ORDER BY fecha_registro DESC";
 } else {
-    $query = "SELECT * FROM inventario WHERE categoria = '$categoria' ORDER BY fecha_registro DESC";
+    $query = "SELECT * FROM inventario 
+              WHERE categoria = '$categoria' 
+              AND activo = 1 
+              ORDER BY fecha_registro DESC";
 }
 $resultado = $conn->query($query);
 ?>

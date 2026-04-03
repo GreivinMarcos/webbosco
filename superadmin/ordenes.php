@@ -2,7 +2,7 @@
 session_start();
 include('../conexion.php');
 
-if (!isset($_SESSION['usuario']) || $_SESSION['admin'] !== 'admin') {
+if (!isset($_SESSION['usuario']) || $_SESSION['admin'] !== 'superadmin') {
     header("Location: ../login.php");
     exit;
 }
@@ -185,8 +185,8 @@ select,input[type="date"]{background:#111;color:#fff;border:1px solid #00bcd4;bo
 <header><h1>📦 Órdenes FitBar</h1>
         <nav>
             <a href="admin_dashboard.php">Inicio</a>
-            <!--<a href="usuarios.php">Usuarios</a>-->
-            <!--<a href="ordenes.php">Órdenes</a>-->
+            <a href="usuarios.php">Usuarios</a>
+            <a href="ordenes.php">Órdenes</a>
             <a href="../logout.php">Cerrar Sesión</a>
         </nav>
 </header>

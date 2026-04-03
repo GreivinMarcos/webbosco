@@ -3,14 +3,42 @@ session_start();
 include('conexion.php');
 
 // Si el usuario ya está logueado, lo redirige directamente
-if (isset($_SESSION['usuario'])) {
-    if ($_SESSION['admin'] == 'si') {
-        header("Location: admin/admin_dashboard.php");
-    } else {
-        header("Location: shop.php");
+if (isset($_SESSION['usuario']) && isset($_SESSION['admin'])) {
+
+    switch ($_SESSION['admin']) {
+
+        case 'superadmin':
+            header("Location: superadmin/admin_dashboard.php");
+            break;
+
+        case 'admin':
+            header("Location: admin/admin_dashboard.php");
+            break;
+
+        case 'usuario':
+            header("Location: shop.php");
+            break;
+
+        default:
+            // Por seguridad, cualquier valor extraño lo manda al login
+            session_destroy();
+            header("Location: login.php");
+            break;
     }
+
     exit;
 }
+
+
+
+// if (isset($_SESSION['usuario'])) {
+   // if ($_SESSION['admin'] == 'superadmin') {
+       // header("Location: superadmin/admin_dashboard.php");
+    //} else {
+      //  header("Location: shop.php");
+    //}
+   // exit;
+// }
 //prueba de git
 //segunda prueba
 $mensaje = '';

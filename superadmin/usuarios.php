@@ -3,7 +3,7 @@ session_start();
 include('../conexion.php');
 
 // Verificar si el usuario es admin
-if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== 'admin') {
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== 'superadmin') {
     header("Location: ../login.php");
     exit();
 }
@@ -37,8 +37,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nuevo_pass'], $_POST[
     $stmt->close();
 }
 
-// 🔥 NUEVO: Cambiar si el usuario es admin ("si"/"no")
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cambiar_admin'], $_POST['user_id'])) {
+// 🔥 NUEVO: Cambiar rol de usuario 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rol'], $_POST['user_id'])) {
+
+    $user_id = intval($_POST['user_id']);
+    $nuevo_rol = $_POST['rol'];
+
+    // Validar roles permitidos (seguridad)
+    $roles_validos = ['usuario', 'admin', 'superadmin'];
+
+    if (!in_array($nuevo_rol, $roles_validos)) {
+        $mensaje = "Rol inválido.";
+    } else {
+
+        $sql = "UPDATE usuarios SET admin = ? WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $nuevo_rol, $user_id);
+
+        if ($stmt->execute()) {
+            $mensaje = "Rol actualizado correctamente.";
+        } else {
+            $mensaje = "Error al actualizar rol.";
+        }
+
+        $stmt->close();
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cambiar_fiado'], $_POST['user_id'])) {
+    
+    $user_id = intval($_POST['user_id']);
+    $puede_fiado = ($_POST['cambiar_fiado'] === '1') ? 1 : 0;
+
+    $sql = "UPDATE usuarios SET puede_fiado = ? WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $puede_fiado, $user_id);
+
+    if ($stmt->execute()) {
+        $mensaje = "Permiso de fiado actualizado correctamente.";
+    } else {
+        $mensaje = "Error al actualizar permiso de fiado.";
+    }
+
+    $stmt->close();
+}
+
+/*if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cambiar_admin'], $_POST['user_id'])) {
     $user_id = intval($_POST['user_id']);
     $nuevo_admin = ($_POST['cambiar_admin'] === 'si') ? 'si' : 'no';
 
@@ -52,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cambiar_admin'], $_PO
         $mensaje = "Error al actualizar rol.";
     }
     $stmt->close();
-}
+}*/
 
 // Obtener todos los usuarios
 $result = $conn->query("SELECT * FROM usuarios ORDER BY fecha_registro DESC");
@@ -123,7 +167,9 @@ $result = $conn->query("SELECT * FROM usuarios ORDER BY fecha_registro DESC");
                 <th>Fecha Registro</th>
                 <th>Cambio de Contraseña</th>
                 <th>Admin</th>
+                <th>Crédito</th>                
                 <th>Eliminar Usuario</th>
+
             </tr>
         </thead>
         <tbody>
@@ -145,15 +191,40 @@ $result = $conn->query("SELECT * FROM usuarios ORDER BY fecha_registro DESC");
                         <button class="btn btn-warning" type="submit">Cambiar</button>
                     </form></td>
                 <td>
-                    <!-- 🔥 NUEVO: FORM CAMBIAR ADMIN SI/NO -->
-                    <form method="POST" style="display:inline;">
+                    <!-- NUEVO: FORM CAMBIAR ROL DE ADMIN -->
+                 <form method="POST" style="display:inline;">
+                    <input type="hidden" name="user_id" value="<?= $u['id'] ?>">
+
+                    <select name="rol" required>
+                        <option value="usuario" <?= $u['admin'] === 'usuario' ? 'selected' : '' ?>>Usuario</option>
+                        <option value="admin" <?= $u['admin'] === 'admin' ? 'selected' : '' ?>>Admin</option>
+                        <option value="superadmin" <?= $u['admin'] === 'superadmin' ? 'selected' : '' ?>>Superadmin</option>
+                    </select>
+
+                    <button class="btn btn-warning" type="submit">Actualizar</button>
+                  </form>
+                </td>
+               <td>
+                <!-- 🔥 NUEVO: FORM CAMBIAR FIADO -->
+                <form method="POST" style="display:inline;">
+                    <input type="hidden" name="user_id" value="<?= $u['id'] ?>">
+
+                    <select name="cambiar_fiado" required>
+                        <option value="1" <?= $u['puede_fiado'] == 1 ? 'selected' : '' ?>>Sí</option>
+                        <option value="0" <?= $u['puede_fiado'] == 0 ? 'selected' : '' ?>>No</option>
+                    </select>
+
+                    <button class="btn btn-warning" type="submit">Actualizar</button>
+                </form>
+
+                 <!--   <form method="POST" style="display:inline;">
                         <input type="hidden" name="user_id" value="<?= $u['id'] ?>">
                         <select name="cambiar_admin" required>
                             <option value="si" <?= $u['admin'] === 'si' ? 'selected' : '' ?>>si</option>
                             <option value="no" <?= $u['admin'] === 'no' ? 'selected' : '' ?>>no</option>
                         </select>
                         <button class="btn btn-warning" type="submit">Actualizar</button>
-                    </form>
+                    </form> -->
                 </td>
                 <td>
                     <a class="btn btn-danger" href="?eliminar=<?= $u['id'] ?>" onclick="return confirm('¿Eliminar usuario?');">Eliminar</a>
